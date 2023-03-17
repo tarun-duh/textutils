@@ -3,7 +3,7 @@ import Navbar from "./components/Navbar";
 function App() {
   return (
     <>
-      <Navbar title="tarun" />
+      <Navbar title="TextUtils" about="About Us" />
     </>
   );
 }

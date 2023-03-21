@@ -4,6 +4,7 @@ function App() {
   return (
     <>
       <Navbar title="TextUtils" about="About Us" />
+      <div></div>
     </>
   );
 }

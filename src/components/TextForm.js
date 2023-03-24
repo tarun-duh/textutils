@@ -16,7 +16,12 @@ export default function TextForm(props) {
   const changeHandle = (event) => {
     setText(event.target.value);
   };
-  const [text, setText] = useState("user text here");
+  const speak = () => {
+    let msg = new SpeechSynthesisUtterance();
+    msg.text = text;
+    window.speechSynthesis.speak(msg);
+  };
+  const [text, setText] = useState("");
   return (
     <>
       <div>
@@ -31,18 +36,21 @@ export default function TextForm(props) {
               rows="10"
             ></textarea>
           </div>
-          <button className="btn btn-primary " onClick={upperCaseFunc}>
+          <button className="btn btn-primary  " onClick={upperCaseFunc}>
             Convert to UpperCase
           </button>
           <button className="btn btn-primary mx-3" onClick={lowerCaseFunc}>
             Convert to LowerCase
           </button>
-          <button className="btn btn-primary " onClick={sentenceCaseFunc}>
+          <button className="btn btn-primary mr-3 " onClick={sentenceCaseFunc}>
             Convert to sentenceCase
+          </button>
+          <button className="btn btn-primary ml-3 " onClick={speak}>
+            speak
           </button>
         </div>
         <div className="container my-3">
-          <h1>Text Summary</h1>
+          <h2>Text Summary</h2>
           <p>
             <b>{text.split(" ").length}</b> words and <b>{text.length}</b>{" "}
             characters

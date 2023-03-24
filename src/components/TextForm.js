@@ -5,27 +5,56 @@ export default function TextForm(props) {
     let newText = text.toUpperCase();
     setText(newText);
   };
+  const sentenceCaseFunc = () => {
+    let newText = text[0].toUpperCase() + text.slice(1).toLowerCase();
+    setText(newText);
+  };
+  const lowerCaseFunc = () => {
+    let newText = text.toLowerCase();
+    setText(newText);
+  };
   const changeHandle = (event) => {
     setText(event.target.value);
   };
   const [text, setText] = useState("user text here");
   return (
-    <div>
-      <div className="container my-3">
-        <h1 className="my-4">{props.heading}</h1>
-        <div className="input-group my-4">
-          <textarea
-            value={text}
-            onChange={changeHandle}
-            className="form-control"
-            aria-label="With textarea"
-            rows="10"
-          ></textarea>
+    <>
+      <div>
+        <div className="container my-3">
+          <h1 className="my-4">{props.heading}</h1>
+          <div className="input-group my-4">
+            <textarea
+              value={text}
+              onChange={changeHandle}
+              className="form-control"
+              aria-label="With textarea"
+              rows="10"
+            ></textarea>
+          </div>
+          <button className="btn btn-primary " onClick={upperCaseFunc}>
+            Convert to UpperCase
+          </button>
+          <button className="btn btn-primary mx-3" onClick={lowerCaseFunc}>
+            Convert to LowerCase
+          </button>
+          <button className="btn btn-primary " onClick={sentenceCaseFunc}>
+            Convert to sentenceCase
+          </button>
         </div>
-        <button className="btn btn-primary" onClick={upperCaseFunc}>
-          Convert to UpperCase
-        </button>
+        <div className="container my-3">
+          <h1>Text Summary</h1>
+          <p>
+            <b>{text.split(" ").length}</b> words and <b>{text.length}</b>{" "}
+            characters
+          </p>
+          <p>
+            <b>{(text.length / 6) * 0.008}mint</b> this much time will it take
+            you to read the above para
+          </p>
+          <h2>Preview your text</h2>
+          <p>{text}</p>
+        </div>
       </div>
-    </div>
+    </>
   );
 }

@@ -1,27 +1,47 @@
 import React, { useState } from "react";
 
 export default function TextForm(props) {
+  const [text, setText] = useState("");
+  const [speakBool, setSpeakBool] = useState(false);
+
   const upperCaseFunc = () => {
     let newText = text.toUpperCase();
     setText(newText);
   };
+
   const sentenceCaseFunc = () => {
-    let newText = text[0].toUpperCase() + text.slice(1).toLowerCase();
-    setText(newText);
+    let arr = text.split(".");
+    let res = [];
+    for (let i of arr) {
+      if (i[0] == " ") {
+        res.push(i[1].toUpperCase() + i.slice(2).toLowerCase());
+      } else {
+        res.push(i[0].toUpperCase() + i.slice(1).toLowerCase());
+      }
+    }
+    setText(res.join(". "));
   };
+
   const lowerCaseFunc = () => {
     let newText = text.toLowerCase();
     setText(newText);
   };
+
   const changeHandle = (event) => {
     setText(event.target.value);
   };
+
   const speak = () => {
-    let msg = new SpeechSynthesisUtterance();
-    msg.text = text;
-    window.speechSynthesis.speak(msg);
+    setSpeakBool(!speakBool);
+    if (!speakBool) {
+      let msg = new SpeechSynthesisUtterance();
+      msg.text = text;
+      window.speechSynthesis.speak(msg);
+    } else {
+      window.speechSynthesis.cancel();
+    }
   };
-  const [text, setText] = useState("");
+
   return (
     <>
       <div>
@@ -45,8 +65,8 @@ export default function TextForm(props) {
           <button className="btn btn-primary mr-3 " onClick={sentenceCaseFunc}>
             Convert to sentenceCase
           </button>
-          <button className="btn btn-primary ml-3 " onClick={speak}>
-            speak
+          <button className="btn btn-primary mx-3 " onClick={speak}>
+            {speakBool ? "Stop" : "Speak"}
           </button>
         </div>
         <div className="container my-3">
@@ -56,8 +76,8 @@ export default function TextForm(props) {
             characters
           </p>
           <p>
-            <b>{(text.length / 6) * 0.008}mint</b> this much time will it take
-            you to read the above para
+            <b>{((text.length / 6) * 0.008).toFixed(3)}min</b> this much time
+            will it take you to read the above para
           </p>
           <h2>Preview your text</h2>
           <p>{text}</p>

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 export default function TextForm(props) {
   const [text, setText] = useState("");
-  const [speakBool, setSpeakBool] = useState(false);
+  const [speakBool, setSpeakBool] = useState(true);
 
   const upperCaseFunc = () => {
     let newText = text.toUpperCase();
@@ -33,7 +33,7 @@ export default function TextForm(props) {
 
   const speak = () => {
     setSpeakBool(!speakBool);
-    if (!speakBool) {
+    if (speakBool) {
       let msg = new SpeechSynthesisUtterance();
       msg.text = text;
       window.speechSynthesis.speak(msg);
@@ -66,7 +66,7 @@ export default function TextForm(props) {
             Convert to sentenceCase
           </button>
           <button className="btn btn-primary mx-3 " onClick={speak}>
-            {speakBool ? "Stop" : "Speak"}
+            {speakBool ? "Speak" : "Stop"}
           </button>
         </div>
         <div className="container my-3">

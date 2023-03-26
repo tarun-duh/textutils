@@ -46,7 +46,7 @@ export default function TextForm(props) {
     <>
       <div>
         <div className="container my-3">
-          <h1 className="my-4">{props.heading}</h1>
+          <h1 className="my-4 text-danger">{props.heading}</h1>
           <div className="input-group my-4">
             <textarea
               value={text}

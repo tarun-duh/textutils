@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -34,5 +34,13 @@
   }
   to {
     transform: rotate(360deg);
+  }
+} */
+@media (max-width: 600px) {
+  .btn {
+    margin-bottom: 4px;
+    width: auto;
+    height: auto;
+    font-size: small;
   }
 }

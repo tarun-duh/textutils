@@ -1,3 +1,4 @@
+import { clear } from "@testing-library/user-event/dist/clear";
 import React, { useState } from "react";
 
 export default function TextForm(props) {
@@ -10,7 +11,7 @@ export default function TextForm(props) {
   };
 
   const sentenceCaseFunc = () => {
-    let arr = text.split(".");
+    let arr = text.split(". ");
     let res = [];
     for (let i of arr) {
       if (i[0] == " ") {
@@ -42,6 +43,11 @@ export default function TextForm(props) {
     }
   };
 
+  const clear = () => {
+    let newText = "";
+    setText(newText);
+  };
+
   return (
     <>
       <div>
@@ -59,7 +65,10 @@ export default function TextForm(props) {
           <button className="btn btn-primary  " onClick={upperCaseFunc}>
             Convert to UpperCase
           </button>
-          <button className="btn btn-primary mx-3" onClick={lowerCaseFunc}>
+          <button
+            className="btn btn-primary xs:btn-danger mx-3"
+            onClick={lowerCaseFunc}
+          >
             Convert to LowerCase
           </button>
           <button className="btn btn-primary mr-3 " onClick={sentenceCaseFunc}>
@@ -67,6 +76,9 @@ export default function TextForm(props) {
           </button>
           <button className="btn btn-primary mx-3 " onClick={speak}>
             {speakBool ? "Speak" : "Stop"}
+          </button>
+          <button className="btn btn-primary  " onClick={clear}>
+            Clear
           </button>
         </div>
         <div className="container my-3">

@@ -14,7 +14,7 @@ export default function TextForm(props) {
     let arr = text.split(". ");
     let res = [];
     for (let i of arr) {
-      if (i[0] == " ") {
+      if (i[0] === " ") {
         res.push(i[1].toUpperCase() + i.slice(2).toLowerCase());
       } else {
         res.push(i[0].toUpperCase() + i.slice(1).toLowerCase());

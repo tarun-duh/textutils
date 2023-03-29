@@ -1,7 +1,7 @@
 import { clear } from "@testing-library/user-event/dist/clear";
 import React, { useState } from "react";
 
-export default function TextForm(props) {
+export default function TextForm({ mode, heading }) {
   //usestates
   const [text, setText] = useState("");
   const [speakBool, setSpeakBool] = useState(true);
@@ -48,17 +48,28 @@ export default function TextForm(props) {
     let newText = "";
     setText(newText);
   };
-  console.log(props);
   return (
     <>
       <div>
-        <div className="container my-3">
-          <h1 className="my-4 text-danger">{props.heading}</h1>
+        <div
+          className={`container my-3 text-${
+            mode === "dark" ? "light" : "dark"
+          }`}
+        >
+          <h1
+            className={`my-4 text-danger text-${
+              mode === "dark" ? "light" : "dark"
+            }`}
+          >
+            {heading}
+          </h1>
           <div className="input-group my-4">
             <textarea
               value={text}
               onChange={changeHandle}
-              className="form-control"
+              className={`form-control bg-${mode} text-${
+                mode === "dark" ? "light" : "dark"
+              }`}
               aria-label="With textarea"
               rows="10"
             ></textarea>
@@ -82,9 +93,13 @@ export default function TextForm(props) {
             Clear
           </button>
         </div>
-        <div className="container my-3">
-          <p>{props.mode}</p>
-          <h2 className={`text-${props.mode === "dark" ? "light" : "dark"}`}>
+        <div
+          className={`container my-3 text-${
+            mode === "dark" ? "light" : "dark"
+          }`}
+        >
+          <p>{mode}</p>
+          <h2 className={`text-${mode === "dark" ? "light" : "dark"}`}>
             Text Summary
           </h2>
           <p>

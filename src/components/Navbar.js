@@ -1,19 +1,19 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-export default function Navbar(props) {
+export default function Navbar({ mode, title, about, toggleMode }) {
   //function
 
   return (
     <div>
       <nav
-        className={`navbar navbar-expand-lg navbar-${props.mode} bg-${
-          props.mode
-        } text-${props.mode === "dark" ? "light" : "dark"}`}
+        className={`navbar navbar-expand-lg navbar-${mode} bg-${mode} text-${
+          mode === "dark" ? "light" : "dark"
+        }`}
       >
         <div className="container-fluid">
           <a className="navbar-brand" href="/">
-            {props.title}
+            {title}
           </a>
           <button
             className="navbar-toggler"
@@ -35,17 +35,17 @@ export default function Navbar(props) {
               </li>
               <li className="nav-item">
                 <a className="nav-link" href="/">
-                  {props.about}
+                  {about}
                 </a>
               </li>
             </ul>
             <div
               className={`form-check form-switch text-${
-                props.mode === "dark" ? "light" : "dark"
+                mode === "dark" ? "light" : "dark"
               }`}
             >
               <input
-                onClick={props.toggleMode}
+                onClick={toggleMode}
                 className="form-check-input"
                 type="checkbox"
                 role="switch"

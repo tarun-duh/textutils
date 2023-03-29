@@ -30,7 +30,7 @@ export default function About() {
   return (
     <div>
       <div className="container p-4" style={style}>
-        <h1 className="my-3">About Us</h1>
+        <h1 className="my-3 text-danger">About Us</h1>
         <p>
           The React-based text manipulation app is a powerful tool designed to
           help users manipulate text in various ways. Whether you need to edit,

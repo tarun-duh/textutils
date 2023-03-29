@@ -2,9 +2,10 @@ import { clear } from "@testing-library/user-event/dist/clear";
 import React, { useState } from "react";
 
 export default function TextForm(props) {
+  //usestates
   const [text, setText] = useState("");
   const [speakBool, setSpeakBool] = useState(true);
-
+  //functions
   const upperCaseFunc = () => {
     let newText = text.toUpperCase();
     setText(newText);
@@ -47,7 +48,7 @@ export default function TextForm(props) {
     let newText = "";
     setText(newText);
   };
-
+  console.log(props);
   return (
     <>
       <div>
@@ -82,7 +83,10 @@ export default function TextForm(props) {
           </button>
         </div>
         <div className="container my-3">
-          <h2>Text Summary</h2>
+          <p>{props.mode}</p>
+          <h2 className={`text-${props.mode === "dark" ? "light" : "dark"}`}>
+            Text Summary
+          </h2>
           <p>
             <b>{text.split(" ").length}</b> words and <b>{text.length}</b>{" "}
             characters

@@ -83,13 +83,13 @@ export default function TextForm({ mode, heading }) {
           >
             Convert to LowerCase
           </button>
-          <button className="btn btn-primary mr-3 " onClick={sentenceCaseFunc}>
+          <button className="btn btn-success mr-3 " onClick={sentenceCaseFunc}>
             Convert to sentenceCase
           </button>
-          <button className="btn btn-primary mx-3 " onClick={speak}>
+          <button className="btn btn-warning mx-3 " onClick={speak}>
             {speakBool ? "Speak" : "Stop"}
           </button>
-          <button className="btn btn-primary  " onClick={clear}>
+          <button className="btn btn-danger  " onClick={clear}>
             Clear
           </button>
         </div>
@@ -111,7 +111,9 @@ export default function TextForm({ mode, heading }) {
             will it take you to read the above para
           </p>
           <h2>Preview your text</h2>
-          <p>{text}</p>
+          <p>
+            {text.length === 0 ? " Type something above to preview here" : text}
+          </p>
         </div>
       </div>
     </>

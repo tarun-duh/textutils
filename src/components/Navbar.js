@@ -7,7 +7,7 @@ export default function Navbar({ mode, title, about, toggleMode }) {
   return (
     <div>
       <nav
-        className={`navbar navbar-expand-lg navbar-${mode} bg-${mode} text-${
+        className={` border border-bottom-2 border-primary navbar navbar-expand-lg navbar-${mode} bg-${mode} text-${
           mode === "dark" ? "light" : "dark"
         }`}
       >

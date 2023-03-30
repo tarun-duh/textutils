@@ -10,7 +10,16 @@ function App() {
   let toggleMode = () => {
     if (mode === "light") {
       setMode("dark");
-      document.body.style.backgroundColor = "#1b1b1b";
+      document.body.style.backgroundColor = "#060047";
+    } else {
+      setMode("light");
+      document.body.style.backgroundColor = "white";
+    }
+  };
+  let toggleMode2 = () => {
+    if (mode === "light") {
+      setMode("dark");
+      document.body.style.backgroundColor = "#850000";
     } else {
       setMode("light");
       document.body.style.backgroundColor = "white";
@@ -22,6 +31,7 @@ function App() {
         title="TextUtils"
         mode={mode}
         toggleMode={toggleMode}
+        toggleMode2={toggleMode2}
         about="About Us"
       />
       <TextForm mode={mode} heading="Enter your text to analyze" />

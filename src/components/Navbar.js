@@ -1,7 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-export default function Navbar({ mode, title, about, toggleMode }) {
+export default function Navbar({
+  mode,
+  title,
+  about,
+  toggleMode,
+  toggleMode2,
+}) {
   //function
 
   return (
@@ -34,7 +40,7 @@ export default function Navbar({ mode, title, about, toggleMode }) {
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="/">
+                <a className="mx-4 nav-link" href="/">
                   {about}
                 </a>
               </li>
@@ -55,7 +61,26 @@ export default function Navbar({ mode, title, about, toggleMode }) {
                 className="form-check-label"
                 htmlFor="flexSwitchCheckDefault"
               >
-                dark mode
+                navy dark mode
+              </label>
+            </div>
+            <div
+              className={`form-check mx-4 form-switch text-${
+                mode === "dark" ? "light" : "dark"
+              }`}
+            >
+              <input
+                onClick={toggleMode2}
+                className="form-check-input"
+                type="checkbox"
+                role="switch"
+                id="flexSwitchCheckDefault"
+              />
+              <label
+                className="form-check-label"
+                htmlFor="flexSwitchCheckDefault"
+              >
+                red dark mode
               </label>
             </div>
           </div>

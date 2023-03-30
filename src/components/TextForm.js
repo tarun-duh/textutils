@@ -48,6 +48,17 @@ export default function TextForm({ mode, heading }) {
     let newText = "";
     setText(newText);
   };
+
+  const word = (text) => {
+    let b = text.split(" ");
+    let c = [];
+    for (let i of b) {
+      if (i != "") {
+        c.push(i);
+      }
+    }
+    return c.length;
+  };
   return (
     <>
       <div>
@@ -63,11 +74,12 @@ export default function TextForm({ mode, heading }) {
           >
             {heading}
           </h1>
-          <div className="input-group my-4">
+          <div className={`input-group my-4 `}>
             <textarea
               value={text}
               onChange={changeHandle}
-              className={`form-control bg-${mode} text-${
+              style={{ backgroundColor: mode === "dark" ? "#060047" : "white" }}
+              className={`form-control  text-${
                 mode === "dark" ? "light" : "dark"
               }`}
               aria-label="With textarea"
@@ -103,8 +115,7 @@ export default function TextForm({ mode, heading }) {
             Text Summary
           </h2>
           <p>
-            <b>{text.split(" ").length}</b> words and <b>{text.length}</b>{" "}
-            characters
+            <b>{word(text)}</b> words and <b>{text.length}</b> characters
           </p>
           <p>
             <b>{((text.length / 6) * 0.008).toFixed(3)}min</b> this much time

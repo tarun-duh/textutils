@@ -119,7 +119,7 @@ export default function TextForm({ mode, heading }) {
           </p>
           <p>
             <b>{((text.length / 6) * 0.008).toFixed(3)}min</b> this much time
-            will it take you to read the above para
+            will it take you to read the above paragraph
           </p>
           <h2>Preview your text</h2>
           <p>

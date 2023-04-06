@@ -1,4 +1,4 @@
-import { clear } from "@testing-library/user-event/dist/clear";
+// import { clear } from "@testing-library/user-event/dist/clear";
 import React, { useState } from "react";
 
 export default function TextForm({ mode, heading }) {
@@ -53,7 +53,7 @@ export default function TextForm({ mode, heading }) {
     let b = text.split(" ");
     let c = [];
     for (let i of b) {
-      if (i != "") {
+      if (i !== "") {
         c.push(i);
       }
     }

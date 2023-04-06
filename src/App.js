@@ -35,6 +35,7 @@ function App() {
         about="About Us"
       />
       <TextForm mode={mode} heading="Enter your text to analyze" />
+      <About />
     </>
   );
 }

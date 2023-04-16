@@ -40,7 +40,7 @@ export default function Navbar({
                 </a>
               </li>
               <li className="nav-item">
-                <a className="mx-4 nav-link" href="/">
+                <a className="mx-4 nav-link" href="/about">
                   {about}
                 </a>
               </li>

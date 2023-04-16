@@ -3,7 +3,7 @@ import About from "./components/About";
 import Navbar from "./components/Navbar";
 import TextForm from "./components/TextForm";
 import React, { useState } from "react";
-
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 function App() {
   const [mode, setMode] = useState("light");
   //function
@@ -27,15 +27,23 @@ function App() {
   };
   return (
     <>
-      <Navbar
-        title="TextUtils"
-        mode={mode}
-        toggleMode={toggleMode}
-        toggleMode2={toggleMode2}
-        about="About Us"
-      />
-      <TextForm mode={mode} heading="Enter your text to analyze" />
-      <About />
+      <Router>
+        <Navbar
+          title="TextTranXform"
+          mode={mode}
+          toggleMode={toggleMode}
+          toggleMode2={toggleMode2}
+          about="About Us"
+        />
+        <Switch>
+          <Route exact path="/about">
+            <About mode={mode} />
+          </Route>
+          <Route exact path="/">
+            <TextForm mode={mode} heading="Enter your text to analyze" />
+          </Route>
+        </Switch>
+      </Router>
     </>
   );
 }
